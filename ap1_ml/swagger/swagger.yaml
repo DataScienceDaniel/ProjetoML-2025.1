@@ -1,0 +1,112 @@
+swagger: "2.0"
+info:
+  title: "Predição de Colesterol e Doença Cardíaca"
+  description: "API para previsão de níveis de colesterol e classificação do risco de doença cardíaca."
+  version: "1.0.0"
+host: "localhost:8000"
+basePath: "/"
+schemes:
+  - "http"
+paths:
+  /predicao:
+    get:
+      summary: "Previsão do Colesterol"
+      description: "Prevê o nível de colesterol e o classifica em 'Desejável', 'Limítrofe' ou 'Alto'."
+      produces:
+        - "application/json"
+      parameters:
+        - name: Age
+          in: query
+          description: "Idade do paciente."
+          required: true
+          type: number
+        - name: MaxHR
+          in: query
+          description: "Frequência cardíaca máxima."
+          required: true
+          type: number
+        - name: ChestPainType
+          in: query
+          description: "Tipo de dor no peito. Valores válidos: 'ATA', 'NAP', 'ASY', 'TA'."
+          required: true
+          type: string
+          enum:
+            - "ATA"
+            - "NAP"
+            - "ASY"
+            - "TA"
+      responses:
+        200:
+          description: "Resposta bem-sucedida"
+          schema:
+            type: object
+            properties:
+              colesterol_previsto:
+                type: number
+                description: "Valor previsto de colesterol (arredondado para uma casa decimal)."
+              classificacao:
+                type: string
+                description: "Classificação do colesterol: 'Desejável', 'Limítrofe' ou 'Alto'."
+        default:
+          description: "Erro"
+          schema:
+            type: object
+            properties:
+              erro:
+                type: string
+                description: "Mensagem de erro, ex: ChestPainType inválido. Use: 'ATA', 'NAP', 'ASY', 'TA'"
+  /classificacao:
+    get:
+      summary: "Classificação de Risco Cardíaco"
+      description: "Calcula a probabilidade de risco de doença cardíaca utilizando um modelo de regressão logística. O risco é definido como 1 (risco elevado) quando a probabilidade é maior que 0.5, ou 0 (risco não elevado) caso contrário."
+      produces:
+        - "application/json"
+      parameters:
+        - name: Age
+          in: query
+          description: "Idade do paciente."
+          required: true
+          type: number
+        - name: MaxHR
+          in: query
+          description: "Frequência cardíaca máxima."
+          required: true
+          type: number
+        - name: ChestPainType
+          in: query
+          description: "Tipo de dor no peito. Valores válidos: 'ATA', 'NAP', 'ASY', 'TA'."
+          required: true
+          type: string
+          enum:
+            - "ATA"
+            - "NAP"
+            - "ASY"
+            - "TA"
+        - name: Cholesterol
+          in: query
+          description: "Nível de colesterol."
+          required: true
+          type: number
+      responses:
+        200:
+          description: "Resposta bem-sucedida"
+          schema:
+            type: object
+            properties:
+              risco:
+                type: integer
+                description: "Classificação do risco: 1 para risco elevado ou 0 para risco não elevado."
+                enum:
+                  - 0
+                  - 1
+              probabilidade:
+                type: number
+                description: "Probabilidade calculada pelo modelo de regressão logística."
+        default:
+          description: "Erro"
+          schema:
+            type: object
+            properties:
+              erro:
+                type: string
+                description: "Mensagem de erro, ex: ChestPainType inválido. Use: 'ATA', 'NAP', 'ASY', 'TA'"
