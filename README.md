@@ -12,4 +12,4 @@ A documentação completa da API está disponível no arquivo Swagger/swagger.ya
 
 1. Acesse [Swagger Editor](https://editor.swagger.io/).
 2. Clique em **File > Import URL**.
-3. Insira a URL do arquivo `swagger.yaml` hospedado no GitHub
+3. Insira a URL do arquivo `swagger.yaml` hospedado no GitHub: https://raw.githubusercontent.com/DataScienceDaniel/ProjetoML-2025.1/main/swagger/swagger.yaml
