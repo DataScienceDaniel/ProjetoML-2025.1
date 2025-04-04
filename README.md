@@ -4,7 +4,7 @@ Esta API fornece endpoints para previsão de níveis de colesterol e classifica�
 
 ## Localização da Documentação
 
-A documentação completa da API está disponível no arquivo Swagger/OpenAPI localizado na pasta `swagger` do repositório:
+A documentação completa da API está disponível no arquivo Swagger/swagger.yaml localizado na pasta `swagger` do repositório:
 
 [swagger/swagger.yaml](swagger/swagger.yaml)
 
@@ -12,4 +12,4 @@ A documentação completa da API está disponível no arquivo Swagger/OpenAPI lo
 
 1. Acesse [Swagger Editor](https://editor.swagger.io/).
 2. Clique em **File > Import URL**.
-3. Insira a URL do arquivo `swagger.yaml` hospedado no GitHub:
+3. Insira a URL do arquivo `swagger.yaml` hospedado no GitHub
