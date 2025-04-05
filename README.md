@@ -2,12 +2,6 @@
 
 Esta API fornece endpoints para previsão de níveis de colesterol e classificação do risco de doença cardíaca.
 
-## Localização da Documentação
-
-A documentação completa da API está disponível no arquivo Swagger/swagger.yaml localizado na pasta `swagger` do repositório:
-
-[swagger/swagger.yaml](swagger/swagger.yaml)
-
 ## Como Visualizar a Documentação
 
 1. Acesse [Swagger Editor](https://editor.swagger.io/).
