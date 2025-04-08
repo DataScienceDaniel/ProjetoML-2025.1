@@ -9,7 +9,7 @@ Esta API fornece endpoints para previsão de níveis de colesterol e classifica�
 3. Insira a URL do arquivo `swagger.yaml` hospedado no GitHub: https://raw.githubusercontent.com/DataScienceDaniel/ProjetoML-2025.1/main/swagger/swagger.yaml
 
 ## Relatório do Trabalho
-ML_2025P1.pdf
+Relatorio.pdf
 
 ## Integrantes
 Daniel Lloyd 
